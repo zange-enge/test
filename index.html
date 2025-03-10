@@ -27,60 +27,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>〖仮〗 - 思索の記録</title>
+    <title>〖仮〗ポートフォリオ</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;600&family=Sacramento&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Noto Serif JP', serif;
-            background-color: #f7f7f7;
-            color: #333;
+            background: linear-gradient(135deg, #222, #555);
+            color: #f5f5f5;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
         }
         .container {
-            width: 60%;
-            margin: 50px auto;
-            padding: 20px;
-            background: white;
-            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            text-align: center;
+            position: relative;
+            width: 80%;
         }
         h1 {
             font-family: 'Sacramento', cursive;
-            text-align: center;
-            font-size: 2.5em;
+            font-size: 3em;
+            color: #fff;
+            animation: fadeIn 2s ease-in-out;
         }
-        .post {
-            margin: 20px 0;
-            padding: 20px;
-            border-left: 4px solid #888;
+        p {
+            font-size: 1.2em;
             opacity: 0;
             transform: translateY(20px);
-            transition: all 0.6s ease-in-out;
+            animation: fadeInUp 1.5s ease-out forwards;
         }
-        .post.show {
-            opacity: 1;
-            transform: translateY(0);
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .circle {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            animation: pulse 3s infinite alternate;
+        }
+        @keyframes pulse {
+            from { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+            to { transform: translate(-50%, -50%) scale(1.2); opacity: 0.1; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>〖仮〗</h1>
-        <div class="post">そうしていつも終わり続ける。</div>
-        <div class="post">綺麗なわかりやすいストーリーで生きれたらよかったね。</div>
-        <div class="post">自分を知るための自己紹介。</div>
+        <p>静寂の中に、言葉を刻む。</p>
+        <p>このポートフォリオは、あなたの思索の旅。</p>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let posts = document.querySelectorAll(".post");
-            posts.forEach((post, index) => {
-                setTimeout(() => {
-                    post.classList.add("show");
-                }, index * 500);
-            });
-        });
-    </script>
+    <div class="circle"></div>
 </body>
 </html>
